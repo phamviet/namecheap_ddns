@@ -92,6 +92,7 @@ def main():
 	parser.add_option("", "--password", help="Dynamic DNS password.")
 	parser.add_option("", "--host", help="Host name.")
 	parser.add_option("", "--ip", help="Ip address to set to.")
+	parser.add_option("", "--cachefile", default="/tmp/namecheap_ddns.cache", help="Cache file path.")
 	parser.add_option("", "--debug", help="Enable debug mode", default=False)
 
 	(options, args) = parser.parse_args()
@@ -100,7 +101,7 @@ def main():
 		parser.error("Either domain, password and host are required.")
 
 	if internet_accessible():
-		n = NamecheapDDNS(options.domain, options.password, options.debug)
+		n = NamecheapDDNS(options.domain, options.password, options.debug, options.cachefile)
 		n.update(options.host, options.ip)
 	else:
 		print ("You are offline.")
