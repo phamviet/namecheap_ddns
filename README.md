@@ -1,8 +1,8 @@
 ### Cli Usage
-    namecheap_ddns.py --domain=domain_name --password=domain_password --host=host_name
+    namecheap_ddns.py --domain=domain_name --password=domain_password --host=host_name --debug=1
 
 ### Application Usage
-    import namecheap_ddns
+    from namecheap_ddns import NamecheapDDNS
     n = NamecheapDDNS(domain, password)
     n.update(host, ip)
     
